@@ -26,6 +26,7 @@ echo('Copying extra files to dist folder.');
 writeFileSync('dist/package.json', JSON.stringify(releasePkg, null, 2));
 copyFileSync('README.md', 'dist/README.md');
 copyFileSync('LICENSE', 'dist/LICENSE');
+copyFileSync('src/index.html', 'dist/index.html');
 echo('Files copied.');
 
 // TS needs to know that this is not beling loaded globally
