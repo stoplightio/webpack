@@ -127,6 +127,7 @@
     "webpack-serve": "2.0.x",
     "webpack-serve-waitpage": "1.0.x",
     "webpackbar": "2.6.x",
+    "webpack-chain": "5.0.x",
     "worker-loader": "2.0.x"
   },
   "devDependencies": {
@@ -153,7 +154,6 @@
     "ts-node": "7.0.x",
     "tslint-config-stoplight": "1.x.x",
     "typedoc": "0.13.x",
-    "typescript": "3.1.x",
-    "webpack-chain": "5.0.x"
+    "typescript": "3.1.x"
   }
 }
