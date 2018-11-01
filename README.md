@@ -2,25 +2,35 @@
 
 [![Maintainability](https://api.codeclimate.com/v1/badges/42f95e29a1fba71d1387/maintainability)](https://codeclimate.com/github/stoplightio/webpack/maintainability) [![Test Coverage](https://api.codeclimate.com/v1/badges/42f95e29a1fba71d1387/test_coverage)](https://codeclimate.com/github/stoplightio/webpack/test_coverage)
 
-These helpers are meant to make creating webpack configs easier.
+Plugins, built around [webpack-chain](https://github.com/neutrinojs/webpack-chain), that make creating webpack configs easier.
 
-Available "plugins":
+- Explore the interfaces: [TSDoc](https://stoplightio.github.io/webpack/)
+- View the changelog: [Releases](https://github.com/stoplightio/webpack/releases)
 
-- BrowserFS: Replace the native `fs` module with the BrowserFS equivalent.
-- Bugsnag: Upload sourcemaps to bugsnag.
-- CSS: Import css.
-- HTML: Render an html template.
-- Javascript: Parse javascript.
-- Monaco: Import monaco.
-- Optimizations: Minification, chunks, etc.
-- Presentation: Better terminal output.
-- Public: Use a public assets folder.
-- Serve: Serve up a hot reloading dev environment.
-- Stylus: Import stylus.
-- Typescript: Parse typescript (and optionally also javascript).
-- Web Workers: Import web workers.
+### Plugins
 
-### Example
+- **BrowserFS:** Replace the native `fs` module with the BrowserFS equivalent.
+- **Bugsnag:** Upload sourcemaps to bugsnag.
+- **CSS:** Import css.
+- **HTML:** Render an html template.
+- **Javascript:** Parse javascript.
+- **Monaco:** Import monaco.
+- **Optimizations:** Minification, chunks, etc.
+- **Presentation:** Better terminal output.
+- **Public:** Use a public assets folder.
+- **Serve:** Serve up a hot reloading dev environment.
+- **Stylus:** Import stylus.
+- **Typescript:** Parse typescript (and optionally also javascript).
+- **Web Workers:** Import web workers.
+
+### Installation
+
+```bash
+# latest stable
+yarn add -D @stoplight/webpack
+```
+
+### Usage
 
 In your `webpack.config.ts` file:
 
@@ -80,3 +90,15 @@ const config: webpack.Configuration = createConfig({
 
 export default config;
 ```
+
+### Contributing
+
+1. Clone repo
+2. Create / checkout `feature/{name}`, `chore/{name}`, or `fix/{name}` branch
+3. Install deps: `yarn`
+4. Make your changes
+5. Run tests: `yarn test.prod`
+6. Stage relevant files to git
+7. Commit: `yarn commit`
+8. Push: `git push`
+9. Open PR targeting the `develop` branch
