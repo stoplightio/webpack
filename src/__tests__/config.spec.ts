@@ -14,7 +14,9 @@ test('createConfig defaults', () => {
         srcDir: '/bar/foo',
       },
       css: {},
-      html: {},
+      html: {
+        templatePath: '/foo',
+      },
       javascript: {},
       monaco: {},
       optimizations: {},
@@ -32,6 +34,11 @@ test('createConfig defaults', () => {
       workers: {},
     },
   });
+
+  // ci server will have a different absolute path, so don't include in snapshot
+  delete config!.resolve!.alias!.bfsGlobal;
+  // @ts-ignore
+  delete config!.entry!.index;
 
   expect(config).toMatchSnapshot();
 });

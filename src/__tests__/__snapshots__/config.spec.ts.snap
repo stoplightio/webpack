@@ -12,9 +12,6 @@ Object {
     "fs": Array [
       "browserfs",
     ],
-    "index": Array [
-      "/Users/Marc/Sites/stoplight/webpack/index.tsx",
-    ],
   },
   "mode": "test",
   "module": Object {
@@ -203,7 +200,7 @@ Object {
         "metaHtml": "",
         "minify": false,
         "showErrors": true,
-        "template": "/Users/Marc/Sites/stoplight/webpack/src/index.html",
+        "template": "/foo",
         "templateParameters": [Function],
         "title": "",
         "xhtml": false,
@@ -493,7 +490,6 @@ Object {
   ],
   "resolve": Object {
     "alias": Object {
-      "bfsGlobal": "/Users/Marc/Sites/stoplight/webpack/node_modules/browserfs/dist/browserfs.js",
       "buffer": "browserfs/dist/shims/buffer.js",
       "bufferGlobal": "browserfs/dist/shims/bufferGlobal.js",
       "fs": "browserfs/dist/shims/fs.js",
