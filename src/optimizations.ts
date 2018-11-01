@@ -14,14 +14,15 @@ export const configureOptimizations = (config: Config, opts: IOptimizationOpts) 
   config.when(
     config.get('mode') === 'development',
     c => {
-      c.devtool(devSourceMap);
-      c.optimization
+      config.devtool(devSourceMap);
+      config.optimization
         .removeAvailableModules(false)
         .removeEmptyChunks(false)
         // @ts-ignore
         .splitChunks(false)
         .end()
-        .output.pathinfo(true);
+        .output.pathinfo(true)
+        .end();
     },
     c => {
       c.devtool(prodSourceMap);
@@ -31,10 +32,11 @@ export const configureOptimizations = (config: Config, opts: IOptimizationOpts) 
         chunks: 'all',
         name: false,
       });
-
       c.optimization.minimize(minimize);
-      c.optimization.minimizer([
-        new TerserPlugin({
+
+      // @ts-ignore
+      c.optimization.minimizer('javascript').use(TerserPlugin, [
+        {
           exclude: [/\.min\./g],
           // Use multi-process parallel running to improve the build speed
           // Default number of concurrent runs: os.cpus().length - 1
@@ -76,7 +78,7 @@ export const configureOptimizations = (config: Config, opts: IOptimizationOpts) 
               ascii_only: true,
             },
           },
-        }),
+        },
       ]);
     }
   );

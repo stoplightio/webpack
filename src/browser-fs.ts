@@ -6,6 +6,13 @@ export interface IBrowserFsOpts {
 }
 
 export const configureBrowserFs = (config: Config, _opts: IBrowserFsOpts) => {
+  try {
+    require.resolve('browserfs');
+  } catch (e) {
+    console.warn('Cannot use browserfs plugin. `browserfs` package is not installed');
+    return;
+  }
+
   config
     .entry('fs')
     .add('browserfs')

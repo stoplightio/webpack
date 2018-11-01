@@ -6,7 +6,7 @@
     "webpack",
     "webpack-chain"
   ],
-  "main": "src/index.ts",
+  "main": "dist/index.js",
   "sideEffects": false,
   "author": "Stoplight <support@stoplight.io>",
   "repository": {
@@ -27,6 +27,7 @@
     "test": "jest",
     "test.watch": "jest --watch",
     "test.prod": "yarn lint && yarn test --coverage --no-cache",
+    "test.update": "yarn test --updateSnapshot",
     "lint": "tslint --project tsconfig.json -t codeFrame 'src/**/*.ts'",
     "format": "tslint --fix src/**/*.ts",
     "commit": "git-cz",
@@ -113,7 +114,6 @@
     "fork-ts-checker-webpack-plugin": "0.4.x",
     "html-webpack-plugin": "3.2.x",
     "koa-connect": "2.0.x",
-    "monaco-editor": "0.14.x",
     "monaco-editor-webpack-plugin": "1.5.x",
     "style-loader": "0.23.x",
     "stylus": "0.54.x",
@@ -123,8 +123,10 @@
     "tslint": "5.x.x",
     "webpack": "4.23.x",
     "webpack-bugsnag-plugins": "1.2.x",
+    "webpack-bundle-analyzer": "3.0.x",
     "webpack-serve": "2.0.x",
     "webpack-serve-waitpage": "1.0.x",
+    "webpackbar": "2.6.x",
     "worker-loader": "2.0.x"
   },
   "devDependencies": {

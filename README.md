@@ -10,11 +10,13 @@ Plugins, built around [webpack-chain](https://github.com/neutrinojs/webpack-chai
 ### Plugins
 
 - **BrowserFS:** Replace the native `fs` module with the BrowserFS equivalent.
+  - Note: must `yarn add browserfs` in your project if using this plugin.
 - **Bugsnag:** Upload sourcemaps to bugsnag.
 - **CSS:** Import css.
 - **HTML:** Render an html template.
 - **Javascript:** Parse javascript.
 - **Monaco:** Import monaco.
+  - Note: must `yarn add monaco-editor` in your project if using this plugin.
 - **Optimizations:** Minification, chunks, etc.
 - **Presentation:** Better terminal output.
 - **Public:** Use a public assets folder.

@@ -1,0 +1,303 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`createConfig defaults 1`] = `
+Object {
+  "devtool": "source-map",
+  "mode": "test",
+  "module": Object {
+    "rules": Array [
+      Object {
+        "test": /\\\\\\.css\\$/,
+        "use": Array [
+          Object {
+            "loader": "style-loader",
+          },
+          Object {
+            "loader": "css-loader",
+            "options": Object {
+              "importLoaders": 1,
+            },
+          },
+          Object {
+            "loader": "postcss-loader",
+            "options": Object {
+              "config": Object {
+                "path": "/Users/Marc/Sites/stoplight/webpack/postcss.config.js",
+              },
+            },
+          },
+        ],
+      },
+      Object {
+        "exclude": Array [
+          /node_modules\\|\\\\\\.min\\\\\\./,
+        ],
+        "test": /\\(\\\\\\.js\\$\\)/,
+        "use": Array [
+          Object {
+            "loader": "cache-loader",
+          },
+          Object {
+            "loader": "babel-loader",
+          },
+        ],
+      },
+      Object {
+        "test": /\\\\\\.styl\\$/,
+        "use": Array [
+          Object {
+            "loader": "style-loader",
+          },
+          Object {
+            "loader": "css-loader",
+          },
+          Object {
+            "loader": "stylus-loader",
+          },
+        ],
+      },
+      Object {
+        "exclude": Array [
+          /node_modules\\|\\\\\\.min\\\\\\./,
+        ],
+        "test": /\\(\\\\\\.ts\\(x\\?\\)\\$\\)/,
+        "use": Array [
+          Object {
+            "loader": "cache-loader",
+          },
+          Object {
+            "loader": "ts-loader",
+            "options": Object {
+              "experimentalFileCaching": true,
+              "experimentalWatchApi": true,
+              "onlyCompileBundledFiles": true,
+              "transpileOnly": true,
+            },
+          },
+        ],
+      },
+      Object {
+        "test": /\\\\\\.worker\\\\\\.js\\$/,
+        "use": Array [
+          Object {
+            "loader": "worker-loader",
+            "options": Object {
+              "fallback": true,
+              "inline": false,
+            },
+          },
+        ],
+      },
+    ],
+  },
+  "optimization": Object {
+    "minimize": true,
+    "minimizer": Array [
+      TerserPlugin {
+        "options": Object {
+          "cache": true,
+          "cacheKeys": [Function],
+          "exclude": Array [
+            /\\\\\\.min\\\\\\./g,
+          ],
+          "extractComments": false,
+          "include": undefined,
+          "minify": undefined,
+          "parallel": true,
+          "sourceMap": true,
+          "terserOptions": Object {
+            "compress": Object {
+              "comparisons": false,
+              "ecma": 5,
+              "inline": 2,
+              "warnings": false,
+            },
+            "mangle": Object {
+              "safari10": true,
+            },
+            "output": Object {
+              "ascii_only": true,
+              "comments": false,
+              "ecma": 5,
+            },
+            "parse": Object {
+              "ecma": 8,
+            },
+          },
+          "test": /\\\\\\.js\\(\\\\\\?\\.\\*\\)\\?\\$/i,
+          "warningsFilter": [Function],
+        },
+      },
+    ],
+    "runtimeChunk": "single",
+    "splitChunks": Object {
+      "chunks": "all",
+      "name": false,
+    },
+  },
+  "performance": undefined,
+  "plugins": Array [
+    BugsnagBuildReporterPlugin {
+      "build": Object {
+        "apiKey": "123",
+        "appVersion": "1.1",
+        "autoAssignRelease": true,
+        "buildTool": "webpack-bugsnag-plugins",
+        "releaseStage": "development",
+      },
+      "options": Object {
+        "logLevel": "debug",
+        "path": "/bar/foo",
+      },
+    },
+    BugsnagSourceMapUploaderPlugin {
+      "apiKey": "123",
+      "appVersion": "1.1",
+      "endpoint": undefined,
+      "overwrite": true,
+      "publicPath": "/foo/bar",
+    },
+    HtmlWebpackPlugin {
+      "options": Object {
+        "bodyHtml": "",
+        "cache": true,
+        "chunks": "all",
+        "chunksSortMode": "auto",
+        "compile": true,
+        "env": "{}",
+        "excludeChunks": Array [],
+        "favicon": false,
+        "filename": "index.html",
+        "hash": false,
+        "headHtml": "",
+        "inject": true,
+        "meta": Object {},
+        "metaHtml": "",
+        "minify": false,
+        "showErrors": true,
+        "template": undefined,
+        "templateParameters": [Function],
+        "title": "",
+        "xhtml": false,
+      },
+    },
+    HashedModuleIdsPlugin {
+      "options": Object {
+        "context": null,
+        "hashDigest": "base64",
+        "hashDigestLength": 4,
+        "hashFunction": "md4",
+      },
+    },
+    WebpackBarPlugin {
+      "_render": [Function],
+      "handler": [Function],
+      "logUpdate": [Function],
+      "options": Object {
+        "color": "green",
+        "compiledIn": true,
+        "done": null,
+        "minimal": true,
+        "name": "stoplight",
+        "profile": undefined,
+        "stream": null,
+      },
+      "profile": undefined,
+    },
+    Object {
+      "apply": [Function],
+    },
+    ForkTsCheckerWebpackPlugin {
+      "async": true,
+      "cancellationToken": undefined,
+      "checkDone": false,
+      "checkSyntacticErrors": true,
+      "colors": Chalk {
+        "enabled": true,
+        "level": 3,
+      },
+      "compilationDone": false,
+      "compiler": undefined,
+      "compilerOptions": Object {},
+      "diagnostics": Array [],
+      "doneCallback": [Function],
+      "elapsed": undefined,
+      "emitCallback": [Function],
+      "formatter": [Function],
+      "ignoreDiagnostics": Array [],
+      "ignoreLints": Array [],
+      "isWatching": false,
+      "lints": Array [],
+      "logger": CustomConsole {
+        "_counters": Object {},
+        "_formatBuffer": [Function],
+        "_groupDepth": 0,
+        "_timers": Object {},
+        "assert": [Function],
+        "clear": [Function],
+        "count": [Function],
+        "countReset": [Function],
+        "debug": [Function],
+        "dir": [Function],
+        "error": [Function],
+        "group": [Function],
+        "groupCollapsed": [Function],
+        "groupEnd": [Function],
+        "info": [Function],
+        "log": [Function],
+        "time": [Function],
+        "timeEnd": [Function],
+        "trace": [Function],
+        "warn": [Function],
+        Symbol(counts): Map {},
+        Symbol(groupIndent): "",
+      },
+      "memoryLimit": 2048,
+      "options": Object {
+        "checkSyntacticErrors": true,
+      },
+      "reportFiles": Array [],
+      "silent": false,
+      "started": undefined,
+      "tsconfig": "./tsconfig.json",
+      "tsconfigPath": undefined,
+      "tslint": undefined,
+      "tslintPath": undefined,
+      "tslintVersion": undefined,
+      "typescriptVersion": "3.1.5",
+      "useColors": true,
+      "vue": false,
+      "watch": Array [],
+      "watchPaths": Array [],
+      "workersNumber": 1,
+    },
+    Object {
+      "BundleAnalyzerPlugin": [Function],
+      "start": [Function],
+    },
+  ],
+  "resolve": Object {
+    "extensions": Array [
+      ".css",
+      ".js",
+      ".stylus",
+      ".tsx",
+      ".ts",
+    ],
+  },
+  "serve": Object {
+    "add": [Function],
+    "content": "",
+    "hotClient": Object {
+      "validTargets": Array [
+        "web",
+        "electron-renderer",
+      ],
+    },
+    "port": undefined,
+  },
+  "watchOptions": Object {
+    "ignored": /node_modules\\|dist/,
+  },
+}
+`;

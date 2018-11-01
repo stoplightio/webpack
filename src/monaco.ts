@@ -7,6 +7,13 @@ export interface IMonacoOpts {
 }
 
 export const configureMonaco = (config: Config, opts: IMonacoOpts) => {
+  try {
+    require.resolve('monaco-editor');
+  } catch (e) {
+    console.warn('Cannot use monaco plugin. `monaco-editor` package is not installed');
+    return;
+  }
+
   // defining monaco as its own entry point breaks some of the async package loading
   // for example, language highlighting. with this uncommented try going to a json file, then a yaml file (note yaml not highlighted)
   // config
