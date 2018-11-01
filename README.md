@@ -1,5 +1,7 @@
 # Webpack Helpers
 
+[![Maintainability](https://api.codeclimate.com/v1/badges/42f95e29a1fba71d1387/maintainability)](https://codeclimate.com/github/stoplightio/webpack/maintainability) [![Test Coverage](https://api.codeclimate.com/v1/badges/42f95e29a1fba71d1387/test_coverage)](https://codeclimate.com/github/stoplightio/webpack/test_coverage)
+
 These helpers are meant to make creating webpack configs easier.
 
 Available "plugins":
