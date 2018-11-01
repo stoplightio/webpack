@@ -20,13 +20,14 @@ import * as typescript from './typescript';
 import * as workers from './workers';
 
 export interface IConfigOpts {
-  distDir: string;
+  distDir?: string;
   srcDir?: string;
   publicDir?: string;
   envName?: string;
   isElectron?: boolean;
   analyze?: boolean;
   debug?: boolean;
+  watchOptions?: webpack.ICompiler.WatchOptions;
   stats?: webpack.Stats.ToStringOptions;
   onBeforeBuild?: (config: Config) => void;
   plugins?: {
@@ -46,7 +47,7 @@ export interface IConfigOpts {
   };
 }
 
-export const createConfig = (opts: IConfigOpts) => {
+export const createConfig = (opts: IConfigOpts = {}) => {
   const config = new Config();
 
   const {
@@ -57,6 +58,7 @@ export const createConfig = (opts: IConfigOpts) => {
     analyze,
     debug,
     isElectron = false,
+    watchOptions = {},
     onBeforeBuild,
     plugins = {},
     stats,
@@ -75,18 +77,22 @@ export const createConfig = (opts: IConfigOpts) => {
       .end();
   }
 
-  config.watchOptions({ ignored: /node_modules|dist/ });
+  config.watchOptions({ ignored: /node_modules|dist/, ...watchOptions });
 
   config.when(
     isElectron,
     c => {
       c.target('electron-renderer');
-      c.output.path(distDir);
-      c.plugin('clean').use(CleanWebpackPlugin, [[distDir], { root: process.cwd() }]);
+      if (distDir) {
+        c.output.path(distDir);
+        c.plugin('clean').use(CleanWebpackPlugin, [[distDir], { root: process.cwd() }]);
+      }
     },
     c => {
-      c.output.path(distDir).publicPath('/');
-      c.plugin('clean').use(CleanWebpackPlugin, [[distDir], { root: process.cwd() }]);
+      if (distDir) {
+        c.output.path(distDir).publicPath('/');
+        c.plugin('clean').use(CleanWebpackPlugin, [[distDir], { root: process.cwd() }]);
+      }
     }
   );
 
