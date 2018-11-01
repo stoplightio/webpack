@@ -22,7 +22,9 @@ test('createConfig defaults', () => {
         name: 'stoplight',
       },
       public: {},
-      serve: {},
+      serve: {
+        hot: true,
+      },
       stylus: {},
       typescript: {
         skipForkTs: true,

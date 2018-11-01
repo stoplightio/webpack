@@ -1,3 +1,4 @@
+import * as path from 'path';
 import * as Config from 'webpack-chain';
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
@@ -11,7 +12,14 @@ export interface IHtmlOpts {
 }
 
 export const configureHtml = (config: Config, opts: IHtmlOpts) => {
-  const { templatePath, env = {}, title = '', metaHtml = '', headHtml = '', bodyHtml = '' } = opts;
+  const {
+    templatePath = path.resolve(__dirname, 'index.html'),
+    env = {},
+    title = '',
+    metaHtml = '',
+    headHtml = '',
+    bodyHtml = '',
+  } = opts;
 
   config.plugin('html').use(HtmlWebpackPlugin, [
     {

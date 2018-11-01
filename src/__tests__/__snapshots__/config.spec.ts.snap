@@ -2,9 +2,23 @@
 
 exports[`createConfig defaults 1`] = `
 Object {
+  "devServer": Object {
+    "hot": true,
+    "open": true,
+    "port": 3300,
+  },
   "devtool": "source-map",
+  "entry": Object {
+    "fs": Array [
+      "browserfs",
+    ],
+    "index": Array [
+      "/Users/Marc/Sites/stoplight/webpack/index.tsx",
+    ],
+  },
   "mode": "test",
   "module": Object {
+    "noParse": /browserfs\\\\\\.js/,
     "rules": Array [
       Object {
         "test": /\\\\\\.css\\$/,
@@ -82,6 +96,14 @@ Object {
       },
     ],
   },
+  "node": Object {
+    "Buffer": false,
+    "child_process": "empty",
+    "dgram": "empty",
+    "fs": "empty",
+    "net": "empty",
+    "tls": "empty",
+  },
   "optimization": Object {
     "minimize": true,
     "minimizer": Array [
@@ -127,8 +149,22 @@ Object {
       "name": false,
     },
   },
+  "output": Object {
+    "filename": "[name].[hash].js",
+  },
   "performance": undefined,
   "plugins": Array [
+    ProvidePlugin {
+      "definitions": Object {
+        "BrowserFS": "bfsGlobal",
+        "Buffer": "bufferGlobal",
+      },
+    },
+    DefinePlugin {
+      "definitions": Object {
+        "process.browser": true,
+      },
+    },
     BugsnagBuildReporterPlugin {
       "build": Object {
         "apiKey": "123",
@@ -167,10 +203,255 @@ Object {
         "metaHtml": "",
         "minify": false,
         "showErrors": true,
-        "template": undefined,
+        "template": "/Users/Marc/Sites/stoplight/webpack/src/index.html",
         "templateParameters": [Function],
         "title": "",
         "xhtml": false,
+      },
+    },
+    MonacoWebpackPlugin {
+      "options": Object {
+        "features": Array [
+          Object {
+            "entry": "vs/editor/standalone/browser/accessibilityHelp/accessibilityHelp",
+            "label": "accessibilityHelp",
+            "worker": undefined,
+          },
+          Object {
+            "entry": "vs/editor/contrib/bracketMatching/bracketMatching",
+            "label": "bracketMatching",
+            "worker": undefined,
+          },
+          Object {
+            "entry": "vs/editor/contrib/caretOperations/caretOperations",
+            "label": "caretOperations",
+            "worker": undefined,
+          },
+          Object {
+            "entry": "vs/editor/contrib/clipboard/clipboard",
+            "label": "clipboard",
+            "worker": undefined,
+          },
+          Object {
+            "entry": "vs/editor/contrib/codeAction/codeActionContributions",
+            "label": "codeAction",
+            "worker": undefined,
+          },
+          Object {
+            "entry": "vs/editor/contrib/codelens/codelensController",
+            "label": "codelens",
+            "worker": undefined,
+          },
+          Object {
+            "entry": "vs/editor/contrib/colorPicker/colorDetector",
+            "label": "colorDetector",
+            "worker": undefined,
+          },
+          Object {
+            "entry": "vs/editor/contrib/comment/comment",
+            "label": "comment",
+            "worker": undefined,
+          },
+          Object {
+            "entry": "vs/editor/browser/controller/coreCommands",
+            "label": "coreCommands",
+            "worker": undefined,
+          },
+          Object {
+            "entry": "vs/editor/contrib/cursorUndo/cursorUndo",
+            "label": "cursorUndo",
+            "worker": undefined,
+          },
+          Object {
+            "entry": "vs/editor/contrib/dnd/dnd",
+            "label": "dnd",
+            "worker": undefined,
+          },
+          Object {
+            "entry": "vs/editor/contrib/find/findController",
+            "label": "find",
+            "worker": undefined,
+          },
+          Object {
+            "entry": "vs/editor/contrib/folding/folding",
+            "label": "folding",
+            "worker": undefined,
+          },
+          Object {
+            "entry": "vs/editor/contrib/format/formatActions",
+            "label": "format",
+            "worker": undefined,
+          },
+          Object {
+            "entry": "vs/editor/contrib/gotoError/gotoError",
+            "label": "gotoError",
+            "worker": undefined,
+          },
+          Object {
+            "entry": "vs/editor/standalone/browser/quickOpen/gotoLine",
+            "label": "gotoLine",
+            "worker": undefined,
+          },
+          Object {
+            "entry": "vs/editor/contrib/hover/hover",
+            "label": "hover",
+            "worker": undefined,
+          },
+          Object {
+            "entry": "vs/editor/contrib/inPlaceReplace/inPlaceReplace",
+            "label": "inPlaceReplace",
+            "worker": undefined,
+          },
+          Object {
+            "entry": "vs/editor/standalone/browser/inspectTokens/inspectTokens",
+            "label": "inspectTokens",
+            "worker": undefined,
+          },
+          Object {
+            "entry": "vs/editor/contrib/linesOperations/linesOperations",
+            "label": "linesOperations",
+            "worker": undefined,
+          },
+          Object {
+            "entry": "vs/editor/contrib/links/links",
+            "label": "links",
+            "worker": undefined,
+          },
+          Object {
+            "entry": "vs/editor/contrib/multicursor/multicursor",
+            "label": "multicursor",
+            "worker": undefined,
+          },
+          Object {
+            "entry": "vs/editor/contrib/parameterHints/parameterHints",
+            "label": "parameterHints",
+            "worker": undefined,
+          },
+          Object {
+            "entry": "vs/editor/standalone/browser/quickOpen/quickCommand",
+            "label": "quickCommand",
+            "worker": undefined,
+          },
+          Object {
+            "entry": Array [
+              "vs/editor/contrib/referenceSearch/referenceSearch",
+              "vs/editor/standalone/browser/referenceSearch/standaloneReferenceSearch",
+            ],
+            "label": "referenceSearch",
+            "worker": undefined,
+          },
+          Object {
+            "entry": "vs/editor/contrib/rename/rename",
+            "label": "rename",
+            "worker": undefined,
+          },
+          Object {
+            "entry": "vs/editor/contrib/smartSelect/smartSelect",
+            "label": "smartSelect",
+            "worker": undefined,
+          },
+          Object {
+            "entry": "vs/editor/contrib/snippet/snippetController2",
+            "label": "snippets",
+            "worker": undefined,
+          },
+          Object {
+            "entry": "vs/editor/contrib/suggest/suggestController",
+            "label": "suggest",
+            "worker": undefined,
+          },
+          Object {
+            "entry": "vs/editor/standalone/browser/toggleHighContrast/toggleHighContrast",
+            "label": "toggleHighContrast",
+            "worker": undefined,
+          },
+          Object {
+            "entry": "vs/editor/contrib/caretOperations/transpose",
+            "label": "transpose",
+            "worker": undefined,
+          },
+          Object {
+            "entry": "vs/editor/contrib/wordHighlighter/wordHighlighter",
+            "label": "wordHighlighter",
+            "worker": undefined,
+          },
+          Object {
+            "entry": "vs/editor/contrib/wordOperations/wordOperations",
+            "label": "wordOperations",
+            "worker": undefined,
+          },
+          Object {
+            "entry": "vs/editor/contrib/wordPartOperations/wordPartOperations",
+            "label": "wordPartOperations",
+            "worker": undefined,
+          },
+        ],
+        "languages": Array [
+          Object {
+            "alias": undefined,
+            "entry": Array [
+              "vs/basic-languages/css/css.contribution",
+              "vs/language/css/monaco.contribution",
+            ],
+            "label": "css",
+            "worker": Object {
+              "entry": "vs/language/css/css.worker",
+              "fallback": "vs/language/css/cssWorker",
+              "id": "vs/language/css/cssWorker",
+              "output": "css.worker.js",
+            },
+          },
+          Object {
+            "alias": undefined,
+            "entry": Array [
+              "vs/basic-languages/html/html.contribution",
+              "vs/language/html/monaco.contribution",
+            ],
+            "label": "html",
+            "worker": Object {
+              "entry": "vs/language/html/html.worker",
+              "fallback": "vs/language/html/htmlWorker",
+              "id": "vs/language/html/htmlWorker",
+              "output": "html.worker.js",
+            },
+          },
+          Object {
+            "alias": undefined,
+            "entry": "vs/basic-languages/javascript/javascript.contribution",
+            "label": "javascript",
+            "worker": undefined,
+          },
+          Object {
+            "alias": undefined,
+            "entry": "vs/language/json/monaco.contribution",
+            "label": "json",
+            "worker": Object {
+              "entry": "vs/language/json/json.worker",
+              "fallback": "vs/language/json/jsonWorker",
+              "id": "vs/language/json/jsonWorker",
+              "output": "json.worker.js",
+            },
+          },
+          Object {
+            "alias": undefined,
+            "entry": "vs/basic-languages/markdown/markdown.contribution",
+            "label": "markdown",
+            "worker": undefined,
+          },
+          Object {
+            "alias": undefined,
+            "entry": "vs/basic-languages/xml/xml.contribution",
+            "label": "xml",
+            "worker": undefined,
+          },
+          Object {
+            "alias": undefined,
+            "entry": "vs/basic-languages/yaml/yaml.contribution",
+            "label": "yaml",
+            "worker": undefined,
+          },
+        ],
+        "output": "",
       },
     },
     HashedModuleIdsPlugin {
@@ -199,30 +480,35 @@ Object {
     Object {
       "apply": [Function],
     },
+    HotModuleReplacementPlugin {
+      "fullBuildTimeout": 200,
+      "multiStep": undefined,
+      "options": Object {},
+      "requestTimeout": 10000,
+    },
     Object {
       "BundleAnalyzerPlugin": [Function],
       "start": [Function],
     },
   ],
   "resolve": Object {
+    "alias": Object {
+      "bfsGlobal": "/Users/Marc/Sites/stoplight/webpack/node_modules/browserfs/dist/browserfs.js",
+      "buffer": "browserfs/dist/shims/buffer.js",
+      "bufferGlobal": "browserfs/dist/shims/bufferGlobal.js",
+      "fs": "browserfs/dist/shims/fs.js",
+      "monaco-editor": "monaco-editor/esm/vs/editor/editor.api.js",
+      "path": "browserfs/dist/shims/path.js",
+      "processGlobal": "browserfs/dist/shims/process.js",
+    },
     "extensions": Array [
-      ".css",
       ".js",
+      ".json",
+      ".css",
       ".stylus",
       ".tsx",
       ".ts",
     ],
-  },
-  "serve": Object {
-    "add": [Function],
-    "content": "",
-    "hotClient": Object {
-      "validTargets": Array [
-        "web",
-        "electron-renderer",
-      ],
-    },
-    "port": undefined,
   },
   "watchOptions": Object {
     "ignored": /node_modules\\|dist/,

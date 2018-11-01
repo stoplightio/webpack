@@ -1,5 +1,6 @@
 // @ts-ignore
 import * as CleanWebpackPlugin from 'clean-webpack-plugin';
+import * as path from 'path';
 import * as webpack from 'webpack';
 // @ts-ignore
 import * as BundleAnalyzerPlugin from 'webpack-bundle-analyzer';
@@ -20,8 +21,9 @@ import * as typescript from './typescript';
 import * as workers from './workers';
 
 export interface IConfigOpts {
-  distDir?: string;
+  srcFile?: string;
   srcDir?: string;
+  distDir?: string;
   publicDir?: string;
   envName?: string;
   isElectron?: boolean;
@@ -51,7 +53,8 @@ export const createConfig = (opts: IConfigOpts = {}) => {
   const config = new Config();
 
   const {
-    srcDir,
+    srcDir = '',
+    srcFile = 'index.tsx',
     distDir,
     publicDir = '',
     envName = process.env.NODE_ENV || 'development',
@@ -68,13 +71,15 @@ export const createConfig = (opts: IConfigOpts = {}) => {
     // @ts-ignore
     .mode(envName);
 
-  if (srcDir) {
+  if (srcDir || srcFile) {
     config
       .entry('index')
-      .add(srcDir)
+      .add(path.resolve(srcDir, srcFile))
       .end()
       .output.filename('[name].[hash].js')
-      .end();
+      .end()
+      .resolve.extensions.add('.js')
+      .add('.json');
   }
 
   config.watchOptions({ ignored: /node_modules|dist/, ...watchOptions });
@@ -113,6 +118,11 @@ export const createConfig = (opts: IConfigOpts = {}) => {
   if (plugins.typescript) typescript.configureTypescript(config, plugins.typescript);
   if (plugins.workers) workers.configureWorkers(config, plugins.workers);
   if (plugins.stylus) stylus.configureStylus(config, plugins.stylus);
+  if (plugins.serve)
+    serve.configureServe(config, {
+      contentBase: publicDir,
+      ...plugins.serve,
+    });
 
   // when needed, to analyze resulting bundle
   if (analyze) {
@@ -131,18 +141,15 @@ export const createConfig = (opts: IConfigOpts = {}) => {
 
   const builtConfig = config.toConfig();
 
-  if (plugins.serve)
-    serve.configureServe(builtConfig, {
-      publicDir,
-      ...plugins.serve,
-    });
-
   // meh, not too useful so turning off
   builtConfig.performance = undefined;
 
   // Log out config, when needed
   if (debug) {
+    console.log('------------------- Webpack Chain Config');
     console.log(config.toString());
+    console.log('------------------- Built Config');
+    console.log(builtConfig);
   }
 
   return builtConfig;

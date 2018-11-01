@@ -1,47 +1,26 @@
-const history = require('connect-history-api-fallback');
-const convert = require('koa-connect');
-const webpackServeWaitpage = require('webpack-serve-waitpage');
 import * as webpack from 'webpack';
-
-const port = process.env.PORT;
+import * as Config from 'webpack-chain';
 
 export interface IServeOpts {
-  publicDir: string;
+  contentBase: string;
+  hot?: boolean;
+  port?: number;
+  historyApiFallback?: boolean;
+  skipOpen?: boolean;
 }
 
-export const configureServe = (builtConfig: webpack.Configuration, opts: IServeOpts) => {
-  const { publicDir } = opts;
+export const configureServe = (config: Config, opts: IServeOpts) => {
+  const { contentBase, hot = false, port = parseInt(process.env.PORT || '3300'), historyApiFallback, skipOpen } = opts;
 
-  // configure the development server
+  config.devServer.hot(hot).port(port);
+
+  if (contentBase) config.devServer.contentBase(contentBase);
+  if (historyApiFallback) config.devServer.historyApiFallback(historyApiFallback);
+
   // @ts-ignore
-  builtConfig.serve = {
-    port,
-    content: publicDir,
-    hotClient: {
-      validTargets: ['web', 'electron-renderer'],
-    },
-    add: (app: any, _middleware: any, options: any) => {
-      app.use(webpackServeWaitpage(options));
-      app.use(
-        convert(
-          history({
-            // ... see: https://github.com/bripkens/connect-history-api-fallback#options
-          })
-        )
-      );
-    },
-    // TODO: not working for some reason...
-    // on: {
-    //   listening: () => {
-    //     execSync('ps cax | grep "Google Chrome"');
-    //     execSync(
-    //       `osascript chrome.applescript "${encodeURI(`localhost:${port}`)}"`,
-    //       {
-    //         cwd: __dirname,
-    //         stdio: "ignore"
-    //       }
-    //     );
-    //   }
-    // }
-  };
+  if (!skipOpen) config.devServer.open(true);
+
+  if (hot) {
+    config.plugin('hot').use(webpack.HotModuleReplacementPlugin);
+  }
 };

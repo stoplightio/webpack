@@ -8,10 +8,9 @@ export interface IMonacoOpts {
 
 export const configureMonaco = (config: Config, opts: IMonacoOpts) => {
   try {
-    require.resolve('monaco-editor');
+    require('monaco-editor');
   } catch (e) {
-    console.warn('Cannot use monaco plugin. `monaco-editor` package is not installed');
-    return;
+    // report warning?
   }
 
   // defining monaco as its own entry point breaks some of the async package loading
