@@ -4,10 +4,11 @@ const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 export interface ITypescriptOpts {
   parseJS?: boolean;
   useBabel?: boolean;
+  skipForkTs?: boolean;
 }
 
 export const configureTypescript = (config: Config, opts: ITypescriptOpts) => {
-  const { parseJS, useBabel } = opts;
+  const { parseJS, useBabel, skipForkTs } = opts;
 
   const ruleName = 'compile-ts';
   let tester = /(\.ts(x?)$)/;
@@ -17,7 +18,10 @@ export const configureTypescript = (config: Config, opts: ITypescriptOpts) => {
   }
 
   config.resolve.extensions.add('.tsx').add('.ts');
-  config.plugin('fork-ts').use(ForkTsCheckerWebpackPlugin, [{ checkSyntacticErrors: true }]);
+
+  if (!skipForkTs) {
+    config.plugin('fork-ts').use(ForkTsCheckerWebpackPlugin, [{ checkSyntacticErrors: true }]);
+  }
 
   config.module
     .rule(ruleName)
@@ -44,7 +48,7 @@ export const configureTypescript = (config: Config, opts: ITypescriptOpts) => {
       experimentalFileCaching: true,
       experimentalWatchApi: true,
       onlyCompileBundledFiles: true,
-      transpileOnly: true,
+      transpileOnly: !skipForkTs,
     })
     .end();
 

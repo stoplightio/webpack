@@ -1,11 +1,12 @@
 import * as Config from 'webpack-chain';
-const path = require('path');
 
 export interface ICssOpts {
-  // noop
+  postCssConfigPath?: string;
 }
 
-export const configureCss = (config: Config, _opts: ICssOpts) => {
+export const configureCss = (config: Config, opts: ICssOpts) => {
+  const { postCssConfigPath } = opts;
+
   config.resolve.extensions.add('.css');
 
   config.module
@@ -19,14 +20,19 @@ export const configureCss = (config: Config, _opts: ICssOpts) => {
     .options({
       importLoaders: 1,
     })
-    .end()
-    .use('postcss-loader')
-    .loader('postcss-loader')
-    .options({
-      config: {
-        path: path.resolve(__dirname, '..', 'postcss.config.js'),
-      },
-    });
+    .end();
+
+  if (postCssConfigPath) {
+    config.module
+      .rule('css')
+      .use('postcss-loader')
+      .loader('postcss-loader')
+      .options({
+        config: {
+          path: postCssConfigPath,
+        },
+      });
+  }
 
   return config.module.rule('css');
 };

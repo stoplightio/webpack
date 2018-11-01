@@ -24,7 +24,9 @@ test('createConfig defaults', () => {
       public: {},
       serve: {},
       stylus: {},
-      typescript: {},
+      typescript: {
+        skipForkTs: true,
+      },
       workers: {},
     },
   });
