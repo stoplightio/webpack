@@ -460,19 +460,24 @@ Object {
       },
     },
     WebpackBarPlugin {
-      "_render": [Function],
       "handler": [Function],
-      "logUpdate": [Function],
+      "modulesCount": 500,
       "options": Object {
         "color": "green",
-        "compiledIn": true,
-        "done": null,
-        "minimal": true,
         "name": "stoplight",
         "profile": undefined,
-        "stream": null,
+        "reporter": null,
+        "reporters": Array [
+          "basic",
+        ],
       },
-      "profile": undefined,
+      "profile": false,
+      "reporters": Array [
+        SimpleReporter {},
+      ],
+      "showActiveModules": true,
+      "showEntries": false,
+      "showModules": true,
     },
     Object {
       "apply": [Function],

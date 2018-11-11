@@ -1,4 +1,4 @@
-version: '2'
+version: "2"
 checks:
   argument-count:
     config:
@@ -27,3 +27,5 @@ checks:
   similar-code:
     config:
       threshold: 200
+exclude_patterns:
+  - "**/__tests__/"
