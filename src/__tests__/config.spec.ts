@@ -3,7 +3,6 @@ import { createConfig } from '../config';
 test('createConfig defaults', () => {
   const config = createConfig({
     analyze: true,
-    debug: true,
     plugins: {
       browserfs: {},
       bugsnag: {
