@@ -47,7 +47,7 @@
     "@types/webpack-chain": "4.8.x",
     "babel-loader": "8.0.x",
     "cache-loader": "1.2.x",
-    "clean-webpack-plugin": "0.1.x",
+    "clean-webpack-plugin": "1.0.x",
     "copy-webpack-plugin": "4.6.x",
     "cross-env": "5.2.x",
     "css-loader": "1.0.x",
@@ -70,11 +70,11 @@
     "worker-loader": "2.0.x"
   },
   "devDependencies": {
-    "@stoplight/scripts": "1.1.x",
+    "@stoplight/scripts": "1.1.2",
     "typescript": "3.1.6"
   },
   "lint-staged": {
-    "src/*.ts": [
+    "*.ts": [
       "yarn lint.fix",
       "git add"
     ]
@@ -94,5 +94,8 @@
     "extends": [
       "@commitlint/config-conventional"
     ]
+  },
+  "release": {
+    "extends": "@stoplight/scripts/release"
   }
 }
