@@ -35,7 +35,8 @@
     "test": "sl-scripts test",
     "test.prod": "yarn lint && yarn test --coverage --no-cache",
     "test.update": "yarn test --updateSnapshot",
-    "test.watch": "yarn test --watch"
+    "test.watch": "yarn test --watch",
+    "postbuild": "cp src/index.html dist/index.html"
   },
   "optionalDependencies": {
     "browserfs": "*",
