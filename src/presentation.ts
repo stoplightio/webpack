@@ -7,7 +7,7 @@ export interface IPresentationOpts {
 }
 
 export const configurePresentation = (config: Config, opts: IPresentationOpts) => {
-  const { name, profile } = opts;
+  const { name = 'app', profile } = opts;
 
   config.plugin('webpackBar').use(WebpackBar, [
     {

@@ -1,5 +1,6 @@
 export * from './browser-fs';
 export * from './bugsnag';
+export * from './chain';
 export * from './config';
 export * from './css';
 export * from './html';
