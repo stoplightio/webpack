@@ -25,7 +25,7 @@
   },
   "scripts": {
     "build": "sl-scripts build",
-    "build.docs": "sl-scripts build:tsdoc",
+    "build.docs": "sl-scripts build:typedoc",
     "commit": "git-cz",
     "lint": "sl-scripts lint",
     "lint.fix": "yarn lint --fix",
@@ -38,21 +38,17 @@
     "test.watch": "yarn test --watch",
     "postbuild": "cp src/index.html dist/index.html"
   },
-  "optionalDependencies": {
-    "browserfs": "*",
-    "monaco-editor": "*"
-  },
   "dependencies": {
-    "@babel/core": "7.1.x",
+    "@babel/core": "7.2.x",
     "@types/history": "4.7.x",
-    "@types/webpack-chain": "4.8.x",
+    "@types/webpack-chain": "5.0.x",
     "babel-loader": "8.0.x",
     "cache-loader": "1.2.x",
     "clean-webpack-plugin": "1.0.x",
     "copy-webpack-plugin": "4.6.x",
     "cross-env": "5.2.x",
-    "css-loader": "1.0.x",
-    "fork-ts-checker-webpack-plugin": "0.4.x",
+    "css-loader": "2.0.x",
+    "fork-ts-checker-webpack-plugin": "0.5.x",
     "html-webpack-plugin": "3.2.x",
     "monaco-editor-webpack-plugin": "1.7.0",
     "style-loader": "0.23.x",
@@ -61,7 +57,7 @@
     "terser-webpack-plugin": "1.1.x",
     "ts-loader": "5.3.x",
     "tslint": "5.x.x",
-    "webpack": "4.25.x",
+    "webpack": "4.27.x",
     "webpack-bugsnag-plugins": "1.2.x",
     "webpack-bundle-analyzer": "3.0.x",
     "webpack-chain": "5.0.x",
@@ -71,8 +67,10 @@
     "worker-loader": "2.0.x"
   },
   "devDependencies": {
-    "@stoplight/scripts": "1.2.1",
-    "typescript": "3.1.6"
+    "@stoplight/scripts": "3.1.1",
+    "browserfs": "*",
+    "monaco-editor": "*",
+    "typescript": "3.2.2"
   },
   "lint-staged": {
     "*.ts": [
