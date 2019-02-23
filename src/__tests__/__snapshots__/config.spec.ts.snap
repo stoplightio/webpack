@@ -108,6 +108,7 @@ Object {
         "options": Object {
           "cache": true,
           "cacheKeys": [Function],
+          "chunkFilter": [Function],
           "exclude": Array [
             /\\\\\\.min\\\\\\./g,
           ],
@@ -135,7 +136,7 @@ Object {
               "ecma": 8,
             },
           },
-          "test": /\\\\\\.js\\(\\\\\\?\\.\\*\\)\\?\\$/i,
+          "test": /\\\\\\.m\\?js\\(\\\\\\?\\.\\*\\)\\?\\$/i,
           "warningsFilter": [Function],
         },
       },
@@ -179,6 +180,9 @@ Object {
       "apiKey": "123",
       "appVersion": "1.1",
       "endpoint": undefined,
+      "ignoredBundleExtensions": Array [
+        ".css",
+      ],
       "overwrite": true,
       "publicPath": "/foo/bar",
     },
@@ -479,8 +483,11 @@ Object {
       "showEntries": false,
       "showModules": true,
     },
-    Object {
-      "apply": [Function],
+    CopyPlugin {
+      "options": Object {},
+      "patterns": Array [
+        "",
+      ],
     },
     HotModuleReplacementPlugin {
       "fullBuildTimeout": 200,
