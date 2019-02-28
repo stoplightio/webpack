@@ -144,7 +144,6 @@ Object {
     "runtimeChunk": "single",
     "splitChunks": Object {
       "chunks": "all",
-      "name": false,
     },
   },
   "output": Object {
