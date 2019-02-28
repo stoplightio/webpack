@@ -35,7 +35,8 @@
     "test.prod": "yarn lint && yarn test --coverage --maxWorkers=2",
     "test.update": "yarn test --updateSnapshot",
     "test.watch": "yarn test --watch",
-    "postbuild": "cp src/index.html dist/index.html"
+    "postbuild": "cp src/index.html dist/index.html",
+    "push.yalc": "yarn build && cd dist && yalc push"
   },
   "dependencies": {
     "@babel/core": "7.3.x",
