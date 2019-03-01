@@ -14,8 +14,8 @@ export const configureOptimizations = (config: Config, opts: IOptimizationOpts) 
   config.when(
     config.get('mode') === 'development',
     c => {
-      config.devtool(devSourceMap);
-      config.optimization
+      c.devtool(devSourceMap);
+      c.optimization
         .removeAvailableModules(false)
         .removeEmptyChunks(false)
         // @ts-ignore
@@ -30,7 +30,6 @@ export const configureOptimizations = (config: Config, opts: IOptimizationOpts) 
       c.optimization.runtimeChunk('single');
       c.optimization.splitChunks({
         chunks: 'all',
-        name: false,
       });
       c.optimization.minimize(minimize);
 
