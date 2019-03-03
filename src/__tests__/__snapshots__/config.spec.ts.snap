@@ -32,6 +32,17 @@ Object {
         ],
       },
       Object {
+        "test": /\\\\\\.\\(eot\\|ttf\\|svg\\|woff2\\?\\)\\$/,
+        "use": Array [
+          Object {
+            "loader": "url-loader",
+            "options": Object {
+              "limit": 10240,
+            },
+          },
+        ],
+      },
+      Object {
         "exclude": Array [
           /node_modules\\|\\\\\\.min\\\\\\./,
         ],

@@ -30,6 +30,7 @@ test('createConfig defaults', () => {
       typescript: {
         skipForkTs: true,
       },
+      fonts: {},
       workers: {},
     },
   });

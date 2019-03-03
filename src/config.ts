@@ -9,6 +9,7 @@ import * as Config from 'webpack-chain';
 import * as browserfs from './browser-fs';
 import * as bugsnag from './bugsnag';
 import * as css from './css';
+import * as fonts from './fonts';
 import * as html from './html';
 import * as javascript from './javascript';
 import * as monaco from './monaco';
@@ -36,6 +37,7 @@ export interface IConfigOpts {
     browserfs?: browserfs.IBrowserFsOpts;
     bugsnag?: bugsnag.IBugsnagOpts;
     css?: css.ICssOpts;
+    fonts?: fonts.IFontsOpts;
     html?: html.IHtmlOpts;
     javascript?: javascript.IJavascriptOpts;
     monaco?: monaco.IMonacoOpts;
@@ -104,6 +106,7 @@ export const createConfig = (opts: IConfigOpts = {}) => {
   if (plugins.browserfs) browserfs.configureBrowserFs(config, plugins.browserfs);
   if (plugins.bugsnag) bugsnag.configureBugsnag(config, plugins.bugsnag);
   if (plugins.css) css.configureCss(config, plugins.css);
+  if (plugins.fonts) fonts.configureFonts(config, plugins.fonts);
   if (plugins.html) html.configureHtml(config, plugins.html);
   if (plugins.javascript) javascript.configureJavascript(config, plugins.javascript);
   if (plugins.monaco) monaco.configureMonaco(config, plugins.monaco);
