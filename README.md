@@ -13,6 +13,7 @@ Plugins, built around [webpack-chain](https://github.com/neutrinojs/webpack-chai
   - Note: must `yarn add browserfs` in your project if using this plugin.
 - **Bugsnag:** Upload sourcemaps to bugsnag.
 - **CSS:** Import css.
+- **Fonts:** Import fonts.
 - **HTML:** Render an html template.
 - **Javascript:** Parse javascript.
 - **Monaco:** Import monaco.
@@ -59,6 +60,7 @@ const config: webpack.Configuration = createConfig({
     browserfs: isElectron ? undefined : {},
     bugsnag: undefined,
     css: undefined,
+    fonts: {},
     html: {
       // string to assign to the head title tag
       title: "Stoplight Studio",
