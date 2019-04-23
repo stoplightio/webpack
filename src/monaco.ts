@@ -71,7 +71,7 @@ export const configureMonaco = (config: Config, opts: IMonacoOpts) => {
         // 'sql',
         // 'st',
         // 'swift',
-        // 'typescript',
+        'typescript',
         // 'vb',
         'xml',
         'yaml',
