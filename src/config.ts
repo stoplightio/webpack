@@ -1,5 +1,4 @@
-// @ts-ignore
-import * as CleanWebpackPlugin from 'clean-webpack-plugin';
+import { default as CleanWebpackPlugin } from 'clean-webpack-plugin';
 import * as path from 'path';
 import * as webpack from 'webpack';
 // @ts-ignore
@@ -92,13 +91,13 @@ export const createConfig = (opts: IConfigOpts = {}) => {
       c.target('electron-renderer');
       if (distDir) {
         c.output.path(distDir);
-        c.plugin('clean').use(CleanWebpackPlugin, [[distDir], { root: process.cwd() }]);
+        c.plugin('clean').use(CleanWebpackPlugin);
       }
     },
     c => {
       if (distDir) {
         c.output.path(distDir).publicPath('/');
-        c.plugin('clean').use(CleanWebpackPlugin, [[distDir], { root: process.cwd() }]);
+        c.plugin('clean').use(CleanWebpackPlugin);
       }
     }
   );

@@ -451,6 +451,20 @@ Object {
           },
           Object {
             "alias": undefined,
+            "entry": Array [
+              "vs/basic-languages/typescript/typescript.contribution",
+              "vs/language/typescript/monaco.contribution",
+            ],
+            "label": "typescript",
+            "worker": Object {
+              "entry": "vs/language/typescript/ts.worker",
+              "fallback": "vs/language/typescript/tsWorker",
+              "id": "vs/language/typescript/tsWorker",
+              "output": "typescript.worker.js",
+            },
+          },
+          Object {
+            "alias": undefined,
             "entry": "vs/basic-languages/xml/xml.contribution",
             "label": "xml",
             "worker": undefined,
