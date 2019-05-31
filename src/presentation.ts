@@ -2,7 +2,7 @@ import * as Config from 'webpack-chain';
 const WebpackBar = require('webpackbar');
 
 export interface IPresentationOpts {
-  name: string;
+  name?: string;
   profile?: boolean;
 }
 
