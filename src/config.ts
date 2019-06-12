@@ -1,4 +1,4 @@
-import { default as CleanWebpackPlugin } from 'clean-webpack-plugin';
+import { CleanWebpackPlugin } from 'clean-webpack-plugin';
 import * as path from 'path';
 import * as webpack from 'webpack';
 // @ts-ignore
