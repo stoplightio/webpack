@@ -114,44 +114,6 @@ Object {
   },
   "optimization": Object {
     "minimize": true,
-    "minimizer": Array [
-      TerserPlugin {
-        "options": Object {
-          "cache": true,
-          "cacheKeys": [Function],
-          "chunkFilter": [Function],
-          "exclude": Array [
-            /\\\\\\.min\\\\\\./g,
-          ],
-          "extractComments": false,
-          "include": undefined,
-          "minify": undefined,
-          "parallel": true,
-          "sourceMap": true,
-          "terserOptions": Object {
-            "compress": Object {
-              "comparisons": false,
-              "ecma": 5,
-              "inline": 2,
-              "warnings": false,
-            },
-            "mangle": Object {
-              "safari10": true,
-            },
-            "output": Object {
-              "ascii_only": true,
-              "comments": false,
-              "ecma": 5,
-            },
-            "parse": Object {
-              "ecma": 8,
-            },
-          },
-          "test": /\\\\\\.m\\?js\\(\\\\\\?\\.\\*\\)\\?\\$/i,
-          "warningsFilter": [Function],
-        },
-      },
-    ],
     "runtimeChunk": "single",
     "splitChunks": Object {
       "chunks": "all",
