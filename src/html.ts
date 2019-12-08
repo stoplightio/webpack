@@ -3,6 +3,7 @@ import * as Config from 'webpack-chain';
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 export interface IHtmlOpts {
+  filename?: string;
   templatePath?: string;
   env?: object;
   title?: string;
@@ -13,6 +14,7 @@ export interface IHtmlOpts {
 
 export const configureHtml = (config: Config, opts: IHtmlOpts) => {
   const {
+    filename,
     templatePath = path.resolve(__dirname, 'index.html'),
     env = {},
     title = '',
@@ -23,6 +25,7 @@ export const configureHtml = (config: Config, opts: IHtmlOpts) => {
 
   config.plugin('html').use(HtmlWebpackPlugin, [
     {
+      filename: filename || 'index.html',
       template: templatePath,
       env: JSON.stringify(env),
       title,
