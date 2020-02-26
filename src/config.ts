@@ -24,9 +24,10 @@ export interface IConfigOpts {
   srcFile?: string;
   srcDir?: string;
   distDir?: string;
+  distFile?: string;
   publicDir?: string;
   envName?: string;
-  isElectron?: boolean;
+  target?: 'electron-main' | 'electron-renderer' | 'node' | 'web' | 'webworker';
   analyze?: boolean;
   debug?: boolean;
   watchOptions?: webpack.ICompiler.WatchOptions;
@@ -57,11 +58,12 @@ export const createConfig = (opts: IConfigOpts = {}) => {
     srcDir = '',
     srcFile = 'index.tsx',
     distDir,
+    distFile,
     publicDir = '',
     envName = process.env.NODE_ENV || 'development',
     analyze,
     debug,
-    isElectron = false,
+    target = 'web',
     watchOptions = {},
     onBeforeBuild,
     plugins = {},
@@ -73,34 +75,30 @@ export const createConfig = (opts: IConfigOpts = {}) => {
     .mode(envName);
 
   if (srcDir || srcFile) {
-    config
-      .entry('index')
-      .add(path.resolve(srcDir, srcFile))
-      .end()
-      .output.filename('[name].[hash].js')
-      .end()
-      .resolve.extensions.add('.js')
-      .add('.json');
+    config.entry('index').add(path.resolve(srcDir, srcFile));
+    config.resolve.extensions.add('.js').add('.json');
+    if (target === 'web') {
+      config.output.filename('[name].[hash].js');
+    }
   }
 
   config.watchOptions({ ignored: /node_modules|dist/, ...watchOptions });
 
-  config.when(
-    isElectron,
-    c => {
-      c.target('electron-renderer');
-      if (distDir) {
-        c.output.path(distDir);
-        c.plugin('clean').use(CleanWebpackPlugin);
-      }
-    },
-    c => {
-      if (distDir) {
-        c.output.path(distDir).publicPath('/');
-        c.plugin('clean').use(CleanWebpackPlugin);
-      }
+  config.target(target);
+
+  if (distDir) {
+    config.output.path(distDir);
+    if (!distFile) {
+      config.plugin('clean').use(CleanWebpackPlugin);
     }
-  );
+  }
+  if (distFile) {
+    config.output.filename(distFile);
+  }
+
+  if (target === 'web' || target === 'webworker') {
+    config.output.publicPath('/');
+  }
 
   if (plugins.browserfs) browserfs.configureBrowserFs(config, plugins.browserfs);
   if (plugins.bugsnag) bugsnag.configureBugsnag(config, plugins.bugsnag);
