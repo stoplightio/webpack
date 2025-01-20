@@ -77,6 +77,9 @@
     "tslint-config-stoplight": "^1.4.0",
     "typescript": "^3.7.3"
   },
+  "resolutions": {
+    "cross-spawn": "7.0.5"
+  },
   "lint-staged": {
     "*.ts": [
       "yarn lint.fix",
