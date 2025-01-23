@@ -106,5 +106,8 @@
     "printWidth": 120,
     "singleQuote": true,
     "trailingComma": "es5"
+  },
+  "resolutions": {
+    "cross-spawn": "7.0.5"
   }
 }
