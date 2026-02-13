@@ -8,7 +8,8 @@ export interface IPublicOpts {
 export const configurePublic = (config: Config, opts: IPublicOpts) => {
   const { publicDir } = opts;
 
-  config.plugin('public').use(CopyWebpackPlugin, [[publicDir]]);
+  const patterns = publicDir ? [{ from: publicDir }] : [];
+  config.plugin('public').use(CopyWebpackPlugin, [patterns]);
 
   return config.plugin('public');
 };
