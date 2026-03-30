@@ -51,20 +51,34 @@
     "**/loader-utils": "2.0.4",
     "style-loader/loader-utils": "2.0.4",
     "babel-loader/loader-utils": "2.0.4",
-    "handlebars": "4.7.8",
-    "**/handlebars": "4.7.8",
+    "handlebars": "4.7.9",
+    "**/handlebars": "4.7.9",
     "minimist": "1.2.8",
     "**/minimist": "1.2.8",
     "property-expr": "2.0.5",
     "**/property-expr": "2.0.5",
-    "simple-git": "3.16.1",
-    "**/simple-git": "3.16.1",
+    "simple-git": "3.32.3",
+    "**/simple-git": "3.32.3",
     "create-hash": "1.2.0",
     "**/create-hash": "1.2.0",
     "ejs": "3.1.8",
     "**/ejs": "3.1.8",
     "lodash": "4.17.21",
-    "**/lodash": "4.17.21"
+    "**/lodash": "4.17.21",
+    "minimatch": "3.1.4",
+    "**/minimatch": "3.1.4",
+    "ajv": "6.14.0",
+    "**/ajv": "6.14.0",
+    "qs": "6.14.1",
+    "**/qs": "6.14.1",
+    "tar": "7.5.11",
+    "**/tar": "7.5.11",
+    "brace-expansion": "1.1.13",
+    "**/brace-expansion": "1.1.13",
+    "dompurify": "3.3.2",
+    "**/dompurify": "3.3.2",
+    "tmp": "0.2.4",
+    "**/tmp": "0.2.4"
   },
   "dependencies": {
     "@babel/core": "^7.7.5",
@@ -104,7 +118,7 @@
     "monaco-editor": "*",
     "ts-jest": "^24.2.0",
     "tslint-config-stoplight": "^1.4.0",
-    "typescript": "^3.7.3"
+    "typescript": "4.9.5"
   },
   "lint-staged": {
     "*.ts": [
