@@ -1,87 +1,87 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`createConfig defaults 1`] = `
-Object {
-  "devServer": Object {
+{
+  "devServer": {
     "hot": true,
     "open": true,
     "port": 3300,
   },
   "devtool": "source-map",
-  "entry": Object {
-    "fs": Array [
+  "entry": {
+    "fs": [
       "browserfs",
     ],
   },
   "mode": "test",
-  "module": Object {
+  "module": {
     "noParse": /browserfs\\\\\\.js/,
-    "rules": Array [
-      Object {
+    "rules": [
+      {
         "test": /\\\\\\.css\\$/,
-        "use": Array [
-          Object {
+        "use": [
+          {
             "loader": "style-loader",
           },
-          Object {
+          {
             "loader": "css-loader",
-            "options": Object {
+            "options": {
               "importLoaders": 1,
             },
           },
         ],
       },
-      Object {
+      {
         "test": /\\\\\\.\\(eot\\|ttf\\|svg\\|woff2\\?\\)\\$/,
-        "use": Array [
-          Object {
+        "use": [
+          {
             "loader": "url-loader",
-            "options": Object {
+            "options": {
               "limit": 10240,
             },
           },
         ],
       },
-      Object {
-        "exclude": Array [
+      {
+        "exclude": [
           /node_modules\\|\\\\\\.min\\\\\\./,
         ],
         "test": /\\(\\\\\\.js\\$\\)/,
-        "use": Array [
-          Object {
+        "use": [
+          {
             "loader": "cache-loader",
           },
-          Object {
+          {
             "loader": "babel-loader",
           },
         ],
       },
-      Object {
+      {
         "test": /\\\\\\.styl\\$/,
-        "use": Array [
-          Object {
+        "use": [
+          {
             "loader": "style-loader",
           },
-          Object {
+          {
             "loader": "css-loader",
           },
-          Object {
+          {
             "loader": "stylus-loader",
           },
         ],
       },
-      Object {
-        "exclude": Array [
+      {
+        "exclude": [
           /node_modules\\|\\\\\\.min\\\\\\./,
         ],
         "test": /\\(\\\\\\.ts\\(x\\?\\)\\$\\)/,
-        "use": Array [
-          Object {
+        "use": [
+          {
             "loader": "cache-loader",
           },
-          Object {
+          {
             "loader": "ts-loader",
-            "options": Object {
+            "options": {
               "experimentalFileCaching": true,
               "experimentalWatchApi": true,
               "onlyCompileBundledFiles": true,
@@ -90,12 +90,12 @@ Object {
           },
         ],
       },
-      Object {
+      {
         "test": /\\\\\\.worker\\\\\\.js\\$/,
-        "use": Array [
-          Object {
+        "use": [
+          {
             "loader": "worker-loader",
-            "options": Object {
+            "options": {
               "fallback": true,
               "inline": false,
             },
@@ -104,7 +104,7 @@ Object {
       },
     ],
   },
-  "node": Object {
+  "node": {
     "Buffer": false,
     "child_process": "empty",
     "dgram": "empty",
@@ -112,38 +112,38 @@ Object {
     "net": "empty",
     "tls": "empty",
   },
-  "optimization": Object {
+  "optimization": {
     "minimize": true,
     "runtimeChunk": "single",
-    "splitChunks": Object {
+    "splitChunks": {
       "chunks": "all",
     },
   },
-  "output": Object {
+  "output": {
     "filename": "[name].[hash].js",
   },
   "performance": undefined,
-  "plugins": Array [
+  "plugins": [
     ProvidePlugin {
-      "definitions": Object {
+      "definitions": {
         "BrowserFS": "bfsGlobal",
         "Buffer": "bufferGlobal",
       },
     },
     DefinePlugin {
-      "definitions": Object {
+      "definitions": {
         "process.browser": true,
       },
     },
     BugsnagBuildReporterPlugin {
-      "build": Object {
+      "build": {
         "apiKey": "123",
         "appVersion": "1.1",
         "autoAssignRelease": true,
         "buildTool": "webpack-bugsnag-plugins",
         "releaseStage": "development",
       },
-      "options": Object {
+      "options": {
         "logLevel": "debug",
         "path": "/bar/foo",
       },
@@ -153,27 +153,27 @@ Object {
       "appVersion": "1.1",
       "codeBundleId": undefined,
       "endpoint": undefined,
-      "ignoredBundleExtensions": Array [
+      "ignoredBundleExtensions": [
         ".css",
       ],
       "overwrite": true,
       "publicPath": "/foo/bar",
     },
     HtmlWebpackPlugin {
-      "options": Object {
+      "options": {
         "bodyHtml": "",
         "cache": true,
         "chunks": "all",
         "chunksSortMode": "auto",
         "compile": true,
         "env": "{}",
-        "excludeChunks": Array [],
+        "excludeChunks": [],
         "favicon": false,
         "filename": "index.html",
         "hash": false,
         "headHtml": "",
         "inject": true,
-        "meta": Object {},
+        "meta": {},
         "metaHtml": "",
         "minify": false,
         "showErrors": true,
@@ -184,201 +184,201 @@ Object {
       },
     },
     MonacoEditorWebpackPlugin {
-      "options": Object {
-        "features": Array [
-          Object {
+      "options": {
+        "features": [
+          {
             "entry": "vs/editor/standalone/browser/accessibilityHelp/accessibilityHelp",
             "label": "accessibilityHelp",
           },
-          Object {
+          {
             "entry": "vs/editor/contrib/bracketMatching/bracketMatching",
             "label": "bracketMatching",
           },
-          Object {
+          {
             "entry": "vs/editor/contrib/caretOperations/caretOperations",
             "label": "caretOperations",
           },
-          Object {
+          {
             "entry": "vs/editor/contrib/clipboard/clipboard",
             "label": "clipboard",
           },
-          Object {
+          {
             "entry": "vs/editor/contrib/codeAction/codeActionContributions",
             "label": "codeAction",
           },
-          Object {
+          {
             "entry": "vs/editor/contrib/codelens/codelensController",
             "label": "codelens",
           },
-          Object {
+          {
             "entry": "vs/editor/contrib/colorPicker/colorDetector",
             "label": "colorDetector",
           },
-          Object {
+          {
             "entry": "vs/editor/contrib/comment/comment",
             "label": "comment",
           },
-          Object {
+          {
             "entry": "vs/editor/browser/controller/coreCommands",
             "label": "coreCommands",
           },
-          Object {
+          {
             "entry": "vs/editor/contrib/cursorUndo/cursorUndo",
             "label": "cursorUndo",
           },
-          Object {
+          {
             "entry": "vs/editor/contrib/dnd/dnd",
             "label": "dnd",
           },
-          Object {
+          {
             "entry": "vs/editor/contrib/find/findController",
             "label": "find",
           },
-          Object {
+          {
             "entry": "vs/editor/contrib/folding/folding",
             "label": "folding",
           },
-          Object {
+          {
             "entry": "vs/editor/contrib/format/formatActions",
             "label": "format",
           },
-          Object {
+          {
             "entry": "vs/editor/contrib/gotoError/gotoError",
             "label": "gotoError",
           },
-          Object {
+          {
             "entry": "vs/editor/standalone/browser/quickOpen/gotoLine",
             "label": "gotoLine",
           },
-          Object {
+          {
             "entry": "vs/editor/contrib/hover/hover",
             "label": "hover",
           },
-          Object {
+          {
             "entry": "vs/editor/contrib/inPlaceReplace/inPlaceReplace",
             "label": "inPlaceReplace",
           },
-          Object {
+          {
             "entry": "vs/editor/standalone/browser/inspectTokens/inspectTokens",
             "label": "inspectTokens",
           },
-          Object {
+          {
             "entry": "vs/editor/contrib/linesOperations/linesOperations",
             "label": "linesOperations",
           },
-          Object {
+          {
             "entry": "vs/editor/contrib/links/links",
             "label": "links",
           },
-          Object {
+          {
             "entry": "vs/editor/contrib/multicursor/multicursor",
             "label": "multicursor",
           },
-          Object {
+          {
             "entry": "vs/editor/contrib/parameterHints/parameterHints",
             "label": "parameterHints",
           },
-          Object {
+          {
             "entry": "vs/editor/standalone/browser/quickOpen/quickCommand",
             "label": "quickCommand",
           },
-          Object {
+          {
             "entry": "vs/editor/standalone/browser/referenceSearch/standaloneReferenceSearch",
             "label": "referenceSearch",
           },
-          Object {
+          {
             "entry": "vs/editor/contrib/rename/rename",
             "label": "rename",
           },
-          Object {
+          {
             "entry": "vs/editor/contrib/smartSelect/smartSelect",
             "label": "smartSelect",
           },
-          Object {
+          {
             "entry": "vs/editor/contrib/snippet/snippetController2",
             "label": "snippets",
           },
-          Object {
+          {
             "entry": "vs/editor/contrib/suggest/suggestController",
             "label": "suggest",
           },
-          Object {
+          {
             "entry": "vs/editor/standalone/browser/toggleHighContrast/toggleHighContrast",
             "label": "toggleHighContrast",
           },
-          Object {
+          {
             "entry": "vs/editor/contrib/caretOperations/transpose",
             "label": "transpose",
           },
-          Object {
+          {
             "entry": "vs/editor/contrib/wordHighlighter/wordHighlighter",
             "label": "wordHighlighter",
           },
-          Object {
+          {
             "entry": "vs/editor/contrib/wordOperations/wordOperations",
             "label": "wordOperations",
           },
-          Object {
+          {
             "entry": "vs/editor/contrib/wordPartOperations/wordPartOperations",
             "label": "wordPartOperations",
           },
         ],
         "filename": "[name].worker.js",
-        "languages": Array [
-          Object {
-            "entry": Array [
+        "languages": [
+          {
+            "entry": [
               "vs/basic-languages/css/css.contribution",
               "vs/language/css/monaco.contribution",
             ],
             "label": "css",
-            "worker": Object {
+            "worker": {
               "entry": "vs/language/css/css.worker",
               "id": "vs/language/css/cssWorker",
             },
           },
-          Object {
-            "entry": Array [
+          {
+            "entry": [
               "vs/basic-languages/html/html.contribution",
               "vs/language/html/monaco.contribution",
             ],
             "label": "html",
-            "worker": Object {
+            "worker": {
               "entry": "vs/language/html/html.worker",
               "id": "vs/language/html/htmlWorker",
             },
           },
-          Object {
+          {
             "entry": "vs/basic-languages/javascript/javascript.contribution",
             "label": "javascript",
           },
-          Object {
+          {
             "entry": "vs/language/json/monaco.contribution",
             "label": "json",
-            "worker": Object {
+            "worker": {
               "entry": "vs/language/json/json.worker",
               "id": "vs/language/json/jsonWorker",
             },
           },
-          Object {
+          {
             "entry": "vs/basic-languages/markdown/markdown.contribution",
             "label": "markdown",
           },
-          Object {
-            "entry": Array [
+          {
+            "entry": [
               "vs/basic-languages/typescript/typescript.contribution",
               "vs/language/typescript/monaco.contribution",
             ],
             "label": "typescript",
-            "worker": Object {
+            "worker": {
               "entry": "vs/language/typescript/ts.worker",
               "id": "vs/language/typescript/tsWorker",
             },
           },
-          Object {
+          {
             "entry": "vs/basic-languages/xml/xml.contribution",
             "label": "xml",
           },
-          Object {
+          {
             "entry": "vs/basic-languages/yaml/yaml.contribution",
             "label": "yaml",
           },
@@ -387,7 +387,7 @@ Object {
       },
     },
     HashedModuleIdsPlugin {
-      "options": Object {
+      "options": {
         "context": null,
         "hashDigest": "base64",
         "hashDigestLength": 4,
@@ -397,17 +397,17 @@ Object {
     WebpackBarPlugin {
       "handler": [Function],
       "modulesCount": 500,
-      "options": Object {
+      "options": {
         "color": "green",
         "name": "stoplight",
         "profile": undefined,
         "reporter": null,
-        "reporters": Array [
+        "reporters": [
           "basic",
         ],
       },
       "profile": false,
-      "reporters": Array [
+      "reporters": [
         SimpleReporter {},
       ],
       "showActiveModules": true,
@@ -415,22 +415,22 @@ Object {
       "showModules": true,
     },
     CopyPlugin {
-      "options": Object {},
-      "patterns": Array [],
+      "options": {},
+      "patterns": [],
     },
     HotModuleReplacementPlugin {
       "fullBuildTimeout": 200,
       "multiStep": undefined,
-      "options": Object {},
+      "options": {},
       "requestTimeout": 10000,
     },
-    Object {
+    {
       "BundleAnalyzerPlugin": [Function],
       "start": [Function],
     },
   ],
-  "resolve": Object {
-    "alias": Object {
+  "resolve": {
+    "alias": {
       "buffer": "browserfs/dist/shims/buffer.js",
       "bufferGlobal": "browserfs/dist/shims/bufferGlobal.js",
       "fs": "browserfs/dist/shims/fs.js",
@@ -438,7 +438,7 @@ Object {
       "path": "browserfs/dist/shims/path.js",
       "processGlobal": "browserfs/dist/shims/process.js",
     },
-    "extensions": Array [
+    "extensions": [
       ".js",
       ".json",
       ".css",
@@ -447,7 +447,7 @@ Object {
       ".ts",
     ],
   },
-  "watchOptions": Object {
+  "watchOptions": {
     "ignored": /node_modules\\|dist/,
   },
 }
