@@ -1,9 +1,9 @@
 import { CleanWebpackPlugin } from 'clean-webpack-plugin';
 import * as path from 'path';
-import * as webpack from 'webpack';
 // @ts-ignore
 import * as BundleAnalyzerPlugin from 'webpack-bundle-analyzer';
 import * as Config from 'webpack-chain';
+import * as webpack from 'webpack';
 
 import * as browserfs from './browser-fs';
 import * as bugsnag from './bugsnag';
@@ -29,8 +29,8 @@ export interface IConfigOpts {
   isElectron?: boolean;
   analyze?: boolean;
   debug?: boolean;
-  watchOptions?: webpack.ICompiler.WatchOptions;
-  stats?: webpack.Stats.ToStringOptions;
+  watchOptions?: webpack.Configuration['watchOptions'];
+  stats?: webpack.Configuration['stats'];
   onBeforeBuild?: (config: Config) => void;
   plugins?: {
     browserfs?: browserfs.IBrowserFsOpts;
@@ -52,7 +52,6 @@ export interface IConfigOpts {
 
 export const createConfig = (opts: IConfigOpts = {}) => {
   const config = new Config();
-
   const {
     srcDir = '',
     srcFile = 'index.tsx',
@@ -141,7 +140,13 @@ export const createConfig = (opts: IConfigOpts = {}) => {
     onBeforeBuild(config);
   }
 
-  const builtConfig = config.toConfig();
+  let builtConfig;
+  try {
+    builtConfig = config.toConfig();
+  } catch (err) {
+    console.error(err);
+    throw err;
+  }
 
   // meh, not too useful so turning off
   builtConfig.performance = undefined;

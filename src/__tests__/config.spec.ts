@@ -36,7 +36,9 @@ test('createConfig defaults', () => {
   });
 
   // ci server will have a different absolute path, so don't include in snapshot
-  delete config!.resolve!.alias!.bfsGlobal;
+  if (config?.resolve?.alias && !Array.isArray(config.resolve.alias)) {
+    delete config.resolve.alias.bfsGlobal;
+  }
   // @ts-ignore
   delete config!.entry!.index;
 

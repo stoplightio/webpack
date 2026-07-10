@@ -114,6 +114,7 @@ exports[`createConfig defaults 1`] = `
   },
   "optimization": {
     "minimize": true,
+    "moduleIds": "deterministic",
     "runtimeChunk": "single",
     "splitChunks": {
       "chunks": "all",
@@ -161,6 +162,7 @@ exports[`createConfig defaults 1`] = `
     },
     HtmlWebpackPlugin {
       "options": {
+        "base": false,
         "bodyHtml": "",
         "cache": true,
         "chunks": "all",
@@ -172,16 +174,29 @@ exports[`createConfig defaults 1`] = `
         "filename": "index.html",
         "hash": false,
         "headHtml": "",
-        "inject": true,
+        "inject": "head",
         "meta": {},
         "metaHtml": "",
-        "minify": false,
+        "minify": "auto",
+        "publicPath": "auto",
+        "scriptLoading": "defer",
         "showErrors": true,
         "template": "/foo",
+        "templateContent": false,
         "templateParameters": [Function],
         "title": "",
         "xhtml": false,
       },
+      "userOptions": {
+        "bodyHtml": "",
+        "env": "{}",
+        "filename": "index.html",
+        "headHtml": "",
+        "metaHtml": "",
+        "template": "/foo",
+        "title": "",
+      },
+      "version": 5,
     },
     MonacoEditorWebpackPlugin {
       "options": {
@@ -386,17 +401,10 @@ exports[`createConfig defaults 1`] = `
         "publicPath": "",
       },
     },
-    HashedModuleIdsPlugin {
-      "options": {
-        "context": null,
-        "hashDigest": "base64",
-        "hashDigestLength": 4,
-        "hashFunction": "md4",
-      },
-    },
     WebpackBarPlugin {
+      "dependenciesCount": 10000,
       "handler": [Function],
-      "modulesCount": 500,
+      "modulesCount": 5000,
       "options": {
         "color": "green",
         "name": "stoplight",
@@ -406,24 +414,22 @@ exports[`createConfig defaults 1`] = `
           "basic",
         ],
       },
+      "percentBy": null,
       "profile": false,
+      "progressBar": false,
       "reporters": [
         SimpleReporter {},
       ],
-      "showActiveModules": true,
-      "showEntries": false,
+      "showActiveModules": false,
+      "showDependencies": true,
+      "showEntries": true,
       "showModules": true,
     },
     CopyPlugin {
       "options": {},
-      "patterns": [],
+      "patterns": undefined,
     },
-    HotModuleReplacementPlugin {
-      "fullBuildTimeout": 200,
-      "multiStep": undefined,
-      "options": {},
-      "requestTimeout": 10000,
-    },
+    HotModuleReplacementPlugin {},
     {
       "BundleAnalyzerPlugin": [Function],
       "start": [Function],

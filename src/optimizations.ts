@@ -1,5 +1,4 @@
 import * as Config from 'webpack-chain';
-const webpack = require('webpack');
 
 export interface IOptimizationOpts {
   minimize?: boolean;
@@ -7,8 +6,15 @@ export interface IOptimizationOpts {
   prodSourceMap?: Config.DevTool;
 }
 
-export const configureOptimizations = (config: Config, opts: IOptimizationOpts) => {
-  const { minimize = true, devSourceMap = 'cheap-module-eval-source-map', prodSourceMap = 'source-map' } = opts;
+export const configureOptimizations = (
+  config: Config,
+  opts: IOptimizationOpts
+) => {
+  const {
+    minimize = true,
+    devSourceMap = 'cheap-module-eval-source-map',
+    prodSourceMap = 'source-map',
+  } = opts;
 
   config.when(
     config.get('mode') === 'development',
@@ -26,8 +32,11 @@ export const configureOptimizations = (config: Config, opts: IOptimizationOpts) 
     },
     c => {
       if (prodSourceMap) c.devtool(prodSourceMap);
-
-      c.plugin('hash').use(webpack.HashedModuleIdsPlugin);
+      c.merge({
+        optimization: {
+        moduleIds: 'deterministic',
+        },
+      });
       c.optimization.runtimeChunk('single');
       c.optimization.splitChunks({
         chunks: 'all',
