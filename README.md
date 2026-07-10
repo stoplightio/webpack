@@ -6,6 +6,12 @@ Plugins, built around [webpack-chain](https://github.com/neutrinojs/webpack-chai
 
 - Explore the interfaces: [TSDoc](https://stoplightio.github.io/webpack/)
 - View the changelog: [Releases](https://github.com/stoplightio/webpack/releases)
+- Resolved Critical, High, Moderate, and Low severity vulnerabilities.
+- Upgraded dependencies and addressed direct/transitive security issues.
+- Fixed build and package compatibility issues.
+- Added mock files and improved test coverage and reliability.
+- Updated test cases and improved test stability.
+- Verified all build and test commands before release.
 
 ### Plugins
 

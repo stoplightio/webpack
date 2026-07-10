@@ -1,6 +1,6 @@
 {
   "name": "@stoplight/webpack",
-  "version": "0.0.0",
+  "version": "2.7.0",
   "description": "Webpack helpers, built on top of webpack-chain.",
   "keywords": [
     "webpack",
