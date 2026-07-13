@@ -1,6 +1,6 @@
 import * as path from 'path';
 import * as Config from 'webpack-chain';
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+import * as HtmlWebpackPlugin from 'html-webpack-plugin';
 
 export interface IHtmlOpts {
   filename?: string;
