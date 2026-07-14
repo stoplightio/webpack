@@ -142,7 +142,10 @@ exports[`createConfig defaults 1`] = `
         "appVersion": "1.1",
         "autoAssignRelease": true,
         "buildTool": "webpack-bugsnag-plugins",
+        "logLevel": "warn",
+        "path": "/Users/chetannkorde/Documents/Code-Area-51/Stoplight-Repos/webpack",
         "releaseStage": "development",
+        "sourceControl": {},
       },
       "options": {
         "logLevel": "debug",
@@ -152,13 +155,20 @@ exports[`createConfig defaults 1`] = `
     BugsnagSourceMapUploaderPlugin {
       "apiKey": "123",
       "appVersion": "1.1",
+      "bundle": undefined,
+      "bundleUrl": undefined,
       "codeBundleId": undefined,
+      "dryRun": undefined,
       "endpoint": undefined,
       "ignoredBundleExtensions": [
         ".css",
       ],
+      "logLevel": undefined,
       "overwrite": true,
       "publicPath": "/foo/bar",
+      "retries": undefined,
+      "timeout": undefined,
+      "verbose": undefined,
     },
     HtmlWebpackPlugin {
       "options": {
