@@ -104,7 +104,6 @@
     "follow-redirects": "1.16.0",
     "elliptic": "6.6.1",
     "request": "2.88.2",
-    "fast-xml-builder": "^1.1.7",
     "ws": "^8.21.0",
     "uuid": "11.1.1",
     "**/uuid": "11.1.1",
