@@ -411,29 +411,37 @@ exports[`createConfig defaults 1`] = `
         "publicPath": "",
       },
     },
-    WebpackBarPlugin {
+    WebpackBarProgressPlugin {
       "dependenciesCount": 10000,
+      "estimatedTime": false,
       "handler": [Function],
       "modulesCount": 5000,
       "options": {
-        "color": "green",
-        "name": "stoplight",
-        "profile": undefined,
-        "reporter": null,
-        "reporters": [
-          "basic",
-        ],
+        "activeModules": true,
+        "handler": [Function],
       },
       "percentBy": null,
+      "phaseTimings": false,
       "profile": false,
       "progressBar": false,
-      "reporters": [
-        SimpleReporter {},
-      ],
-      "showActiveModules": false,
+      "showActiveModules": true,
       "showDependencies": true,
       "showEntries": true,
       "showModules": true,
+      "webpackbar": WebpackBar {
+        "options": {
+          "color": "green",
+          "name": "stoplight",
+          "profile": undefined,
+          "reporter": null,
+          "reporters": [
+            "basic",
+          ],
+        },
+        "reporters": [
+          SimpleReporter {},
+        ],
+      },
     },
     CopyPlugin {
       "options": {},
