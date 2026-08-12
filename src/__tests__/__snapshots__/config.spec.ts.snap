@@ -143,7 +143,7 @@ exports[`createConfig defaults 1`] = `
         "autoAssignRelease": true,
         "buildTool": "webpack-bugsnag-plugins",
         "logLevel": "warn",
-        "path": "/Users/chetannkorde/Documents/Code-Area-51/Stoplight-Repos/webpack",
+        "path": "/Users/pradeep_bande/StopLight/webpack",
         "releaseStage": "development",
         "sourceControl": {},
       },
