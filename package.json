@@ -72,8 +72,8 @@
     "**/qs": "6.15.2",
     "tar": "7.5.19",
     "**/tar": "7.5.19",
-    "brace-expansion": "1.1.16",
-    "**/brace-expansion": "1.1.16",
+    "brace-expansion": "^1.1.18",
+    "**/brace-expansion": "^1.1.18",
     "dompurify": "^3.4.9",
     "**/dompurify": "^3.4.9",
     "tmp": "0.2.7",
@@ -113,7 +113,8 @@
     "sigstore": "4.1.1",
     "**/sigstore": "4.1.1",
     "@sigstore/core": "^3.2.1",
-    "**/@sigstore/core": "^3.2.1"
+    "**/@sigstore/core": "^3.2.1",
+    "ip-address": "10.3.1"
   },
   "dependencies": {
     "@babel/core": "^7.29.7",
