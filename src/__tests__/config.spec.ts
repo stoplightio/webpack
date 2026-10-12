@@ -1,5 +1,10 @@
 import { createConfig } from '../config';
 
+expect.addSnapshotSerializer({
+  test: value => typeof value === 'string' && value === process.cwd(),
+  print: () => '"<rootDir>"',
+});
+
 test('createConfig defaults', () => {
   const config = createConfig({
     analyze: true,
